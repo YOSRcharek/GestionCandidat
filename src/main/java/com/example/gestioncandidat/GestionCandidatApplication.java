@@ -5,11 +5,13 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Pageable;
 
 @SpringBootApplication
 @EntityScan(basePackages = "com.example.gestioncandidat")
+@EnableDiscoveryClient
 public class GestionCandidatApplication {
 
 	public static void main(String[] args) {
@@ -33,5 +35,5 @@ public class GestionCandidatApplication {
 		};
 	}
 
-	;
+
 }

@@ -3,6 +3,8 @@ package com.example.gestioncandidat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class CandidatService implements ICandidatService{
     @Autowired
@@ -12,7 +14,9 @@ public class CandidatService implements ICandidatService{
     public Candidat addCandidat(Candidat candidate) {
         return candidateRepository.save(candidate);
     }
-
+    public List<Candidat> getAll(){
+        return candidateRepository.findAll();
+    }
     @Override
     public Candidat updateCandidat(int id, Candidat newCandidat) {
         if (candidateRepository.findById(id).isPresent()) {

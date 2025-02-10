@@ -8,12 +8,19 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class CandidatRestAPI {
     @Autowired
     private CandidatRepo repository;
     @Autowired
     private CandidatService candidatService;
+    @GetMapping("/candidats")
+    public List<Candidat> getAll() {
+        return candidatService.getAll();
+    }
+
     @GetMapping("/candidats/search/candidatByNom")
     public Page<Candidat> searchCandidatesByName(
             @RequestParam("name") String name,
